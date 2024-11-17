@@ -1,0 +1,78 @@
+% !TeX program = pdflatex
+% !TeX encoding = utf8
+% !TeX spellcheck = uk_UA
+% !BIB program = bibtex8
+
+\documentclass[18pt]{LectMechanics}
+\usetikzlibrary{patterns, snakes}
+
+\tikzset{
+	body/.pic = {
+			\fill[red!40, draw=red, opacity=0.5]  plot[smooth cycle, tension=.7] coordinates {
+			(-2.5,0.5)
+			(-0.5,2.5)
+			(1.5,2)
+			(2,0.5)
+			(1,-1.5)
+			(-1.5,-1.5)
+		};
+	}
+}
+
+
+
+\usetikzlibrary{arrows.meta}
+
+\title[Physics 1]{\huge\bfseries Non-inertial reference frame}
+\date{}
+
+\begin{document}
+%=======================================================================================================
+%\usebackgroundtemplate{
+%
+%\tikz\node[opacity=0.3]{\includegraphics[width=\paperwidth,height=\paperheight]{background}};%
+%}
+\begin{frame}
+	\titlepage
+\end{frame}
+%=======================================================================================================
+\usebackgroundtemplate{
+}
+
+
+
+
+%=======================================================================================================
+\begin{frame}{Goals for Lecture}{}
+	\begin{itemize}
+		\item To uanderstand how to describe motion in non-inertial reference frame.
+		\item To understand what inertial forces are and describe their types.
+		\item To formulate the equation of motion in on-inertial reference frame.
+	\end{itemize}
+\end{frame}
+%=======================================================================================================
+
+%=======================================================================================================
+\begin{frame}{Why is description of motion in non-inertial reference frame important?}{}
+\begin{enumerate}
+	\item Newton's second law $m\vec a =\vec F$ holds true only in inertial coordinate systems.
+	\item However, there are many noninertial (that is, accelerating) frames that one needs to
+	consider, such as elevators, merry-go-rounds, and so on.
+	\item Is there any possible way to modify Newton’s laws so that they hold in noninertial
+	frames, or do we have to give up entirely on $m\vec a =\vec F$? It turns out that we can in fact
+	hold on to $m\vec a =\vec F$, provided that we introduce some new <<fictitious>> forces. These are
+	forces that a person in the accelerating frame thinks exist.
+	\item Consideration of noninertial systems will enable us to explore some of the
+	conceptual difficulties of classical mechanics, and secondly it will provide deeper
+	insight into Newton's laws, the properties of space, and the meaning of inertia.
+\end{enumerate}
+\end{frame}
+%=======================================================================================================
+
+%=======================================================================================================
+\begin{frame}{}{}
+
+\end{frame}
+%=======================================================================================================
+
+\end{document}

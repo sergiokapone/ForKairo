@@ -1,0 +1,675 @@
+% !TeX program = lualatex
+% !TeX encoding = utf8
+% !TeX spellcheck = uk_UA
+% !BIB program = biber
+\documentclass{rnp}
+\renewcommand\theadfont{\normalsize}
+
+\input{Physics1DisciplineData}
+
+\addbibresource{EngMech.bib}
+\def\rnptitlepage{%
+	\thispagestyle{empty}	
+	\begin{center}
+		\MakeUppercase{\bfseries\Ministry}\\
+		\MakeUppercase{\bfseries\ntuu}\\
+		\MakeUppercase{\bfseries<<\kpi>>}\\
+		%\ipt\\
+	\end{center}
+	
+	\hfill\begin{minipage}{0.7\linewidth}
+		APPROVED BY\\
+		Deputy Director\\
+		for scientific and pedagogical work\\
+		IPT Igor Sikorsky Kyiv Polytechnic Institute
+		
+		\hfill Lytvynova T. \hspace{4em}
+		
+		\hfill 30.05.2018\hspace{4em}
+	\end{minipage}
+	
+	\vfill
+	\begin{center}
+		\noindent\large\bfseries\discipline
+	\end{center}	
+	\vfill
+	\begin{center}\bfseries
+		Work Program
+	\end{center}
+	
+	\begin{center}	\bfseries
+		for students preparing the first (Bachelor) level of higher education <<\underline{Bachelor}>> of the specialties \underline{113 Applied Mathematics}
+		\hspace*{20ex}\underline{125 Cybersecurity}
+	\end{center}
+	
+	\vfill
+	
+	\hfill\begin{minipage}{0.7\linewidth}
+		Approved by methodical commission\\
+		IPT Igor Sikorsky Kyiv Polytechnic Institute\\
+		Protocol  № \methodcomnum{} of \methodcommonth{} \methodcomday, \the\year~р. \\
+		Head of methodical commission
+		
+		\hspace*{21ex} Smirnov S.
+		
+		\hspace*{21ex} 24.05.2018 
+	\end{minipage}
+	
+	\vfill
+	
+	\begin{center}
+		Kyiv -- \the\year
+	\end{center}
+	\newpage
+	\thispagestyle{empty}
+	
+	{\noindent\bfseries The work program of the credit module <<Physics 1. Mechanics>> for
+		students preparing the first (Bachelor) level of higher education <<Bachelor>> in the speciality \underline{125 Cybersecurity}, \underline{113 Applied mathematics}, according to the full-time form of study is compiled accordingly to the program of the subject <<Physics>>}
+	
+	\vspace*{2em}
+	\noindent Developer of program of the subject:
+	
+	\noindent \underline{associate professor}, \underline{candidate of physical and mathematical sciences}
+	
+	\noindent\underline{Ponomarenko Sergiy Mykolajovysh}
+	
+	
+	\vfill
+	\noindent The program is approved at the sessions of the information security department Protocol № \kafnum{} of \kafmonth{} \kafday{}, \the\year 
+	
+	\noindent Acting head of department
+	
+	
+	\noindent \hspace*{5cm} associate professor Graivoronsky M. V.\\
+	
+	\noindent 25.04.2018
+	
+	\vfill
+	
+	\noindent The program is approved at the sessions of the mathematical methods of information security department Protocol № 4/2018 of April 17, \the\year 
+	
+	\noindent Head of department
+	
+	
+	\noindent \hspace*{5cm} full professor Savchuk M. M. \\
+	
+	\noindent 17.04.2018
+	
+	\vfill
+	\begin{flushright}\small
+		\copyright~\kpi, \the\year
+	\end{flushright}
+	\newpage
+}
+
+
+\begin{document}
+\rnptitlepage
+
+%========================================================================================================
+%
+\section*{Introduction}
+%
+%========================================================================================================
+
+
+This program covers the first section of the course in general physics~--- mechanics and mechanical oscillations. After listening of this course, students can obtain systematic knowledge of the basic concepts and definitions of mechanics, the basic principles of describing mechanical phenomena, get acquainted with the basics of the experiment.
+
+To master the course material, students must be able to solve algebraic equations and simple differential equations, differentiate, integrate, and know elements of vector algebra.
+
+%========================================================================================================
+%
+\section{Description of the credit module}
+%
+%========================================================================================================
+
+\begin{center}\small
+\begin{tabular}{| *3{>{\centering\arraybackslash}m{0.3\linewidth}|} @{}m{0pt}@{}}
+	\hline
+	  \textbf{Branch of knowledge, direction of training, educational and qualification level}                             
+	& \textbf{General Indicators}                                  
+	& \textbf{Characteristics of the credit module}                        
+	&  \\[6ex] \hline
+	  \parbox{\linewidth}{\centering {Branch of knowledge \\ \galuz}}                                                 
+	& \parbox{\linewidth}{\centering Discipline \\\underline{\discipline}}                                                   
+	& \parbox{\linewidth}{\centering Form of study \underline{full-time}} 
+	&  \\[6ex] \hline
+	\parbox{\linewidth}{\centering Training direction \\\napriam}                                          
+	& \parbox{\linewidth}{\centering Number of \\ ECTS credits \\ \underline{\kredits}} 
+	& \parbox{\linewidth}{\centering The status of the credit module \\ \underline{normative}}                                                                
+	&  \\[6ex] \hline
+	\parbox{\linewidth}{\centering Speciallity  \\\spetsialnist}                                        
+	& \parbox{\linewidth}{\centering Number of chapters  \\ \underline{}}                                                             
+	& \parbox{\linewidth}{\centering Cycle \cycle}                                                                 
+	&  \\[6ex] \hline
+	\parbox{\linewidth}{\centering Speciallization   \\\spetsializatsija}                                   
+	& \parbox{\linewidth}{\centering Individual problems \\ \mfield{2cm}{}{}{}{(kind)}}                                                              
+	& \parbox{\linewidth}{Year \mfield{2cm}{}{}{\the\year}{} \\ Semester \mfield{2cm}{}{}{\semestr}{} }                                                                
+	&  \\[6ex] \hline
+	\multirow{2}{*}{\parbox{\linewidth}{\centering Academic degree\\ \underline{\okr}}} 
+	& \parbox{\linewidth}{\centering Total hours \\ \mfield{2cm}{}{}{\godyny}{}}                                                             
+	& \parbox{\linewidth}{\centering Lectures \\ \mfield{2cm}{}{}{\lectgodyny}{} hrs., \\
+	 Practical work \\ \mfield{2cm}{}{}{\practgodyny}{} hrs., \\
+	 Lab classes \\ \mfield{2cm}{}{}{\labgodyny}{} hrs.
+	 }                                                                
+	&  \\[15ex] \cline{2-3}
+	&  \parbox{\linewidth}{\centering Weekly hours: \\ classrooms --- \mfield{2cm}{}{}{5}{} \\ individual ---  \mfield{2cm}{}{}{3}{}}                                                            
+	&  \parbox{\linewidth}{\centering 
+	Individual work \mfield{2cm}{}{}{\SRS}{} \\
+	Type and form of semester \\ control \mfield{2cm}{}{}{\kontrol}{}
+	}                                                                 
+	&  \\[10ex] \hline
+\end{tabular}
+\end{center}
+
+%========================================================================================================
+%
+\section{Purpose and tasks of the credit module}
+%
+%========================================================================================================
+
+The purpose of the credit module is to form students with knowledge and abilities of:
+\begin{itemize}
+	\item laws of mechanics and their application for the interpretation and description of observed phenomena,
+	\item methods and techniques for describing motion of bodies,
+	\item  principles of measurement of physical quantities and processing of experimental data.
+\end{itemize}
+
+
+As a result of the course's study, students develop the ability to interpret the phenomena of nature, to solve problems on the basis of fundamental knowledge of the laws of mechanics.
+
+\newpage
+%========================================================================================================
+%
+\section{Structure of the credit module}
+%
+%========================================================================================================
+
+
+\begin{center}
+\settowidth\rotheadsize{\theadfont (Independent)}
+\begin{longtable}{|>{\raggedright\arraybackslash}m{0.5\linewidth}|c|c|c|c|c|}
+\hline
+\makecell[c]{Content of modules and themes} 
+& \multicolumn{5}{c|}{\thead{Number of hours }}                                                                                                            
+\\ \cline{2-6} 
+& \multirow{2}{*}{\rothead{Total}}
+& \multicolumn{4}{c|}{\thead{including}}                                                                                                        
+\\ \cline{3-6} 
+&                         
+& \makecell[l]{\rothead{Lectures}} 
+& \makecell[l]{\rothead{Practical\\work}} 
+& \makecell[l]{\rothead{Laboratory \\ classes}}  
+& \makecell[l]{\rothead{Independent \\ work}}  
+\\ \hline
+\makecell[c]{1}              
+& \makecell[c]{2}                       
+& \makecell[c]{3}      
+& \makecell[c]{4}                       
+& \makecell[c]{5}           
+& \makecell[c]{6}   
+\\ \hline
+\endhead
+\hline
+\multicolumn{6}{|c|}{\cellcolor{gray!20}\textbf{Module 1. Mechanics}} \\
+\hline
+1.1. Kinematics & \multicolumn{1}{c|}{15} & \multicolumn{1}{c|}{6} & \multicolumn{1}{c|}{6} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{3} \\
+\hline
+1.2. Dynamics. Equation of motion & \multicolumn{1}{c|}{18} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{6} \\
+\hline
+1.3. Non-inertial frame of reference & \multicolumn{1}{c|}{6} & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{2} \\
+\hline
+1.4. Work and energy & \multicolumn{1}{c|}{16} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{4} \\
+\hline
+1.5 Angular Momentum Conservation Law & \multicolumn{1}{c|}{8} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{2} \\
+\hline
+1.6.  Classical central-force problem & \multicolumn{1}{c|}{7} & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{1} \\
+\hline
+1.7. Rigid body dynamics & \multicolumn{1}{c|}{10} & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{2} \\
+\hline
+Control work 1 & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{2} \\
+\hline
+1.8. The principle of relativity. Dynamics or Special Relativity Theory. & \multicolumn{1}{c|}{12} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{4} \\
+\hline
+Calculation work & \multicolumn{1}{c|}{16} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{14} \\
+\hline
+\multicolumn{6}{|c|}{\cellcolor{gray!20}\textbf{Module 2. Mechanical oscillations}} \\
+\hline
+2.1. Oscillatory motion and its characteristics.
+	Equation of oscillation. Harmonious oscillation. Graphic representation of harmonic oscillation by the method of vector diagrams.  Superposition of unidirection oscillations, perpendicular oscillations, beats & \multicolumn{1}{c|}{12} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{2} \\
+\hline
+2.2. Representation of oscillations in a complex form. Differential equations of forced oscillations of an elastic pendulum, a mathematical and physical pendulum. Types of oscillations and their differential equations  & \multicolumn{1}{c|}{8} & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{4} \\
+\hline
+\multicolumn{1}{|l|}{Control work 2} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{2} \\
+\hline
+\multicolumn{1}{|l|}{Laboratory quiz} & 4     &       &       & 2     & 2 \\
+\hline
+\multicolumn{1}{|l|}{Module control work}  & \multicolumn{1}{c|}{6} & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{4} \\
+\hline
+\multicolumn{1}{|l|}{Differential quiz} & \multicolumn{1}{c|}{6} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{6} \\
+\hline
+\multicolumn{1}{|l|}{\textbf{Total}} & \multicolumn{1}{c|}{150} & \multicolumn{1}{c|}{36} & \multicolumn{1}{c|}{36} & \multicolumn{1}{c|}{18} & \multicolumn{1}{c|}{60} \\
+\hline
+\end{longtable}
+\end{center}
+
+\newpage
+
+%========================================================================================================
+%
+\section{Lectures}
+%
+%========================================================================================================
+
+\begin{longtable}{|>{\arraybackslash}m{0.06\linewidth}|>{\raggedright\arraybackslash}m{0.9\linewidth}|}
+\hline 
+ \rowcolor{gray!20} \thead{Seq. \\ №} & \thead {Lecture theme and list of main questions \\ (also a list of didactic support, references and assignments \\ for the individual work) } \\ 
+\hline
+\endhead 
+	\thead{\rownumber.} 
+	& \textbf{Kinematics of the particle}. Space and time. Reference frame. Material point. Radius vector. Trajectory, path, movement. Average and instantaneous velocity. Vector, coordinate methods for describing motion.\newline 
+	Presentation of lecture 1, \cite[\S~1.1]{IrodovMechanics}, \cite[Chapter 2]{BerkeleyMechanics}, \cite[Chapter 2, Chapter 3, Chapter 4]{Holyday}.
+	\\ 
+	\hline 
+	\thead{\rownumber.} 
+	& Parametric description of the movement. Rotational motion of a point and its angular characteristics\newline 
+	Presentation of lecture 2, \cite[\S~1.1, 1.2]{IrodovMechanics}, \cite[Chapter 2]{BerkeleyMechanics}.
+	\\ 
+	\hline 
+	\thead{\rownumber.} 
+	& \textbf{Kinematics of a rigid body}. Progressive, rotational, flat motion of a solid body. Motion around a fixed point. Euler's theorem \newline
+	Presentation of lecture 3, \cite[\S~1.2]{IrodovMechanics}, \cite[Chapter 2]{BerkeleyMechanics}, \cite[Sections 10-1, 10-2, 10-3, 11-1]{Holyday}.
+	\\ 
+	\hline 
+	\thead{\rownumber.} 
+	& \textbf{Dynamics}. The concept of force. Types of interactions in modern physics. Types of forces. Newtonian laws. Equation of particle motion, many-particle system. Momentum Conservation Law. \newline
+	Presentation of lecture 4, \cite[Chapter 2 (except  \S~2.5)]{IrodovMechanics}, \cite[Chapter 3]{BerkeleyMechanics}, \cite[Sections 1-3, Chapter 5, Chapter 6]{Holyday}.
+	\\  
+	\hline 
+	\thead{\rownumber.} 
+	& \textbf{Center of mass}. Theorem on the motion of the center of mass. Reference frame of the center of mass. \textbf{Equation of motion of a body with a variable mass} 
+	\newline
+	Presentation of lecture 5, \cite[Chapter 4]{IrodovMechanics}, \cite[Conservation of momentum]{BerkeleyMechanics}, \cite[Chapter 9]{Holyday}.
+	\\  
+	\hline
+	\thead{\rownumber.} 
+	& \textbf{Non-inertial reference frame.} Inertial forces.\newline
+	Presentation of lecture 6, \cite[\S~2.5]{IrodovMechanics}, \cite[Chapter 4, ADVANCED TOPICS]{BerkeleyMechanics}.
+	\\  
+	\hline
+	\thead{\rownumber.} 
+	& \textbf{Work and energy}. Work of force. Power of force. Potential, conservative forces. Work of conservative forces. Potential energy and its normalization. Relationship between conservative force and potential energy. Gradient.\newline
+	Presentation of lecture 7, \cite[\S~3.1 -- 3.4]{IrodovMechanics}, \cite[Chapter 5]{BerkeleyMechanics}, \cite[Chapter 7, Chapter 8]{Holyday}.
+	\\  
+	\hline
+	\thead{\rownumber.} 
+	& Relationship between work of force and the change of the kinetic energy of a point. Kinetic energy of many-particle system. Total mechanical energy conservation law. The work of dissipative forces. \newline
+	Presentation of lecture 8, \cite[\S~3.5]{IrodovMechanics}.
+	\\  
+	\hline
+	\thead{\rownumber.} 
+	& \textbf{Angular Momentum Conservation Law.} Angular momentum, torque (moment of force). Rate of change of angular momentum for particle and many-particle systems. Angular momentum conservation.
+	 \newline
+	Presentation of lecture 9, \cite[\S~5.1 -- 5.3]{IrodovMechanics}, \cite[Chapter 6]{BerkeleyMechanics}, \cite[Sections 10-4 -- 10-8, 11-7(The Angular Momentum of a System of Particles)]{Holyday}.
+	\\  
+	\hline
+	\thead{\rownumber.} 
+	& \textbf{Classical central-force problem}. Central forces. Potential energy in central force field. Conservation Laws in central force field. Kepler's laws of planetary motion.\newline
+	Presentation of lecture 10, \cite[Chapter 9]{BerkeleyMechanics}, \cite[Chapter 13]{Holyday}.
+	\\  
+	\hline
+	\thead{\rownumber.} 
+	& \textbf{Rigid body dynamics}. The equation of motion of Rigid body. Relation between angular momentum and angular velocity. Rotation of the body relative to the fixed axis. Kinetic energy of rotating body. \newline
+	Presentation of lecture 11, \cite[\S~5.4]{IrodovMechanics}, \cite[Chapter 8]{BerkeleyMechanics}, \cite[Chapter 11]{Holyday}.
+	\\  
+	\hline
+	\thead{\rownumber.} 
+	& The moment of inertia of a particle, many-particle system and rigid body. Parallel axis theorem (Huygens–Steiner theorem). \newline
+	Presentation of lecture 12, \cite[Chapter 8 (MOMENTS OF INERTIA, Parallel Axis Theorem)]{BerkeleyMechanics}.
+	\\  
+	\hline
+	\thead{\rownumber.} 
+	& \textbf{The principle of relativity.} Properties of space and time. Inertial reference systems. Galilean transformation and their effects. Postulates of the special theory of relativity. Properties of light speed in vacuum.
+	\newline
+	Presentation of lecture 13, \cite[\S~6.1, 6.2, 6.3]{IrodovMechanics}, \cite[Chapter 10]{BerkeleyMechanics}.
+	\\  
+	\hline
+	\thead{\rownumber.} 
+	& Lorentz transformations. The interval between events. World line Light Cone of Events. Types of intervals. Consequences of the Lorentz transformations~--- time dilation, relativity of simultaneity, the length contraction, velocity-addition formula.\newline
+	Presentation of lecture 14, \cite[\S~6.4, 6.5, 6.6]{IrodovMechanics}, \cite[Chapter 11]{BerkeleyMechanics}.
+	\\  
+	\hline
+	\thead{\rownumber.} 
+	& \textbf{Dynamics or Special Relativity Theory}. Conservation of momentum and definition of relativistic momentum. Relativistic energy.	Transformation of momentum and energy. Relativistic equation of motion.
+	\newline
+	Presentation of lecture 15, \cite[Chapter 7]{IrodovMechanics}, \cite[Chapter 12]{BerkeleyMechanics}.
+	\\  
+	\hline
+	\thead{\rownumber.} 
+	&\textbf{Mechanical oscillations}. scillatory motion and its characteristics.
+		Equation of oscillation. Harmonious oscillation. Graphic representation of harmonic oscillation by the method of vector diagrams.  Adding of one direction oscillations, perpendicular oscillations, beats.
+		\newline
+	Presentation of lecture 16, \cite[Chapter 1]{BerkeleyWaves}, \cite[Sections 15-1 -- 15-3]{Holyday}.
+	\\  
+	\hline
+	\thead{\rownumber.} 
+	& Representation of oscillations in a complex form. Differential equations of forced oscillations of an elastic pendulum, a mathematical and physical pendulum. Types of oscillations and their differential equations.
+	\newline
+	Presentation of lecture 17, \cite[Chapter 3]{BerkeleyMechanics}, \cite[Sections 15-4, 15-5, 15-6]{Holyday}.
+	\\  
+	\hline
+	\thead{\rownumber.} 
+	& \textbf{Module control work}.
+	\\  
+	\hline
+\end{longtable} 
+
+%========================================================================================================
+%
+\section{Practical work}
+%
+%========================================================================================================
+
+\setcounter{magicrownumbers}{0}
+\begin{longtable}{|>{\arraybackslash}m{0.06\linewidth}|>{\raggedright\arraybackslash}m{0.9\linewidth}|}
+\hline \rowcolor{gray!20}
+ \thead{Seq. \\ №} & \thead {Theme and list of main questions \\ (also a list of didactic support, references and assignments \\ for the individual work) } \\ 
+\hline
+\endhead 
+\thead{\rownumber.} 
+& Vector, coordinate methods for describing motion.
+\newline
+\cite[\S~1.1]{IrodovProblems}
+\\ 
+\hline 
+\thead{\rownumber.} 
+&  Parametric description of the movement. Rotational motion of a point and its angular characteristics.
+\newline
+\cite[\S~1.1]{IrodovProblems}
+\\ 
+\hline 
+\thead{\rownumber.} 
+& Kinematics of a rigid body. Progressive, rotational, flat motion of a solid body. Motion around a fixed point.
+\newline
+\cite[\S~1.1]{IrodovProblems}
+\\ 
+\hline 
+\thead{\rownumber.} 
+& Dynamics. Newtonian laws.
+\newline
+\cite[\S~1.2]{IrodovProblems}
+\\ 
+\hline 
+\thead{\rownumber.} 
+& Equation of motion of a body with a variable mass.
+\newline
+\cite[\S~1.3]{IrodovProblems}
+\\ 
+\hline 
+\thead{\rownumber.} 
+& Non-inertial reference frame. Inertial forces.
+\newline
+\cite[\S~1.2]{IrodovProblems}
+\\ 
+\hline 
+\thead{\rownumber.} 
+&  Work and energy.
+\newline
+\cite[\S~1.3]{IrodovProblems}
+\\ 
+\hline 
+\thead{\rownumber.} 
+& Conservation Laws.
+\newline
+\cite[\S~1.3]{IrodovProblems}
+\\ 
+\hline 
+\thead{\rownumber.} 
+& Classical central-force problem.
+\newline
+\cite[\S~1.4]{IrodovProblems}
+\\ 
+\hline 
+\thead{\rownumber.} 
+& Angular Momentum Conservation Law.
+\newline
+\cite[\S~1.3]{IrodovProblems}
+\\ 
+\hline 
+\thead{\rownumber.} 
+& Rigid body dynamics.
+\newline
+\cite[\S~1.5]{IrodovProblems}
+\\ 
+\hline 
+\thead{\rownumber.} 
+& Control work 1
+\\ 
+\hline 
+\thead{\rownumber.} 
+& Calculation work
+\\ 
+\hline 
+\thead{\rownumber.} 
+& Kinematics of special relativity.
+\newline
+\cite[\S~1.8]{IrodovProblems}
+\\ 
+\hline 
+\thead{\rownumber.} 
+& Dynamics of special relativity.
+\newline
+\cite[\S~1.8]{IrodovProblems}
+\\ 
+\hline 
+\thead{\rownumber.} 
+& Oscillations.
+\newline
+\cite[\S~4.1]{IrodovProblems}
+\\ 
+\hline 
+\thead{\rownumber.} 
+& Adding of oscillations.
+\newline
+\cite[\S~4.1]{IrodovProblems}
+\\ 
+\hline 
+\thead{\rownumber.} 
+& Control work 2
+\\ 
+\hline 
+\end{longtable} 
+
+\newpage
+
+%========================================================================================================
+%
+\section{Laboratory classes}
+%
+%========================================================================================================
+
+\setcounter{magicrownumbers}{0}
+\begin{longtable}{|>{\arraybackslash}m{0.06\linewidth}|>{\raggedright\arraybackslash}m{0.8\linewidth}|>{\arraybackslash}c|}
+\hline \rowcolor{gray!20}
+\thead{Seq. \\ №} 
+& \thead {Laboratory works} 
+& \thead{Hours}\\ 
+\hline
+\endhead 
+\thead{\rownumber.} 
+& Studying the motion of bodies in the field of gravity using the Atwood's machine.
+\newline
+\url{http://www.gtu.edu.tr/Files/UserFiles/90/M8-ENG.pdf}
+& 4
+\\ 
+\hline 
+\thead{\rownumber.} 
+& Study of the laws of rotational motion on the example of the Oberbeck's pendulum.
+\newline
+\url{http://elartu.tntu.edu.ua/bitstream/123456789/82/3/experiment3.pdf}
+& 4
+\\ 
+\hline 
+\thead{\rownumber.} 
+& Study of Conservation Laws of momentum and total mechanical energy on an example of collisions.
+& 4
+\\ 
+\hline 
+\thead{\rownumber.} 
+& Study of the motion of the physical pendulum.
+& 4
+\\ 
+\hline  
+\end{longtable} 
+
+
+%========================================================================================================
+%
+\section{Independent work}
+%
+%========================================================================================================
+
+\setcounter{magicrownumbers}{0}
+\begin{longtable}{|>{\arraybackslash}m{0.06\linewidth}|>{\raggedright\arraybackslash}m{0.8\linewidth}|>{\arraybackslash}c|}
+\hline \rowcolor{gray!20}
+\thead{Seq. \\ №} 
+& \thead {Title of section, topic (separate issue) to be made
+on \\ independent study} 
+& \thead{Hours}\\ 
+\hline
+\endhead 
+\thead{\rownumber.} 
+& Gyroscope 
+\newline
+\cite[Sections 11-9]{Holyday}.
+& 2
+\\ 
+\hline 
+\thead{\rownumber.} 
+& Velocity-addition formula in special relativity theory
+\newline
+\cite[Chapter 11, Velocity Transformation]{BerkeleyMechanics}.
+& 2
+\\ 
+\hline 
+\thead{\rownumber.} 
+& Adding oscillations. Vector diagrams. Lissage figures. Beats
+\newline
+\url{https://en.wikipedia.org/wiki/Beat_(acoustics)}, \cite[Chapter 48, \url{http://www.feynmanlectures.caltech.edu/I_48.html}]{FLF1}
+& 2
+\\ 
+\hline  
+\end{longtable}
+
+
+%========================================================================================================
+%
+\section{Individual work}
+%
+%========================================================================================================
+
+Calculation and graphics work is a kind of independent work of students. It is executed as a semester problem and contains an individual set of problems of a calculated and graphical character, which covers the material of the semester. Problem options for calculation work are given by the teacher at beginning of the semester.
+
+
+%========================================================================================================
+%
+\section{Control works}
+%
+%========================================================================================================
+
+Two intermediate control works, one modular control work.
+
+%%========================================================================================================
+%%
+%\section{The criterion for evaluating students' knowledge}
+%%
+%%========================================================================================================
+%
+%The student's rating of discipline consists of the points that he receives for:
+%\begin{enumerate}
+%\item performance and protection of 4 laboratory works;
+%\item control, self-test, test work;
+%\item one calculation work;
+%\item modular control work.
+%\end{enumerate}
+%
+%System of rating (weight) marks and evaluation criteria
+%\begin{enumerate}
+%\item Laboratory work.
+%
+%The maximum number of points for all laboratory work is 20 points.
+%Incentive and penalty points for laboratory work:
+%\begin{itemize}
+%\item execution and registration of laboratory works according to the schedule - (+ 5) points,
+%\item Untimely execution of laboratory works according to the schedule without a valid reason - (-10) points
+%\end{itemize}
+%\end{enumerate}
+% 
+%
+%
+%2. Control, independent, test work
+%The number of points for all current control, independent, test work is equal to 20 points.
+%3.Recreative work
+%Weighing Ball - 20.
+%In defense, the student must:
+% show a notebook with tasks;
+% find in the notebook and comment on 2 tasks from the list
+% the maximum number of points for each task is the correct solution, the figure is shown, all vectors are marked, elemental volume, area, surface, etc., which is included in the subintegral expression, in the figure, in the text, is a written comment on the basic concepts, laws , which are used during the solution of the problem, answers to all theoretical questions concerning the solution of the problem.
+%
+%\begin{center}
+%\begin{tabular}{|c|c|}
+%\hline
+%\textbf{Meaning of score} & \textbf{ECTS Rank} \\ 
+%\hline
+%$95 \le \mathbf{RD} \le 100$ & Exellent \\
+%\hline
+%$85 \le \mathbf{RD} < 95$ & Very good \\
+%\hline
+%$75 \le \mathbf{RD} < 85$ & Good \\
+%\hline
+%$65 \le \mathbf{RD} < 75$ & Satisfactorily \\
+%\hline
+%$60 \le \mathbf{RD} < 65$ & Enough (minimum criterion) \\
+%\hline
+%$ \mathbf{RD} < 60$ & Unsatisfactorily\\
+%\hline
+%\end{tabular}
+%\end{center}
+
+%%========================================================================================================
+%%
+%\section{Методичні рекомендації}
+%%
+%%========================================================================================================
+%
+%Робоча програма кредитного модуля <<\discipline>> містять детальний перелік необхідних тем та завдань відповідно до навчального матеріалу, передбаченого для вивчення на лекціях. Методика вивчення дисципліни <<\discipline>> крім класичних підходів (конспект, навчальний посібник) передбачає застосування мультимедійних засобів та навчальних фільмів для підвищення наочності навчальних занять. Однак повний конспект з дисципліни <<\discipline>>, підкріплений рекомендованими  книгами, з огляду на обмеженість часу аудиторних занять, залишається одним з основних, методично вивірених  дороговказів на шляху утворення цілісного світогляду фахівця з прикладної фізики в галузях традиційних та нетрадиційних енергетичних систем, а також фізичних досліджень.
+
+%========================================================================================================
+%
+\section{Bybliography}
+%
+%========================================================================================================
+
+\nocite{
+IrodovMechanics,
+IrodovProblems, 
+Holyday, 
+Crowell1, 
+BerkeleyMechanics, 
+BerkeleyWaves,
+FLF1}
+\printbibliography[category=Main, title={Main}, heading=subbibliography]
+\addtocategory{Main}{
+IrodovMechanics, 
+IrodovProblems, 
+Holyday,BerkeleyMechanics,
+BerkeleyWaves}
+\printbibliography[category=Additional, title={Additional}, heading=subbibliography]
+\addtocategory{Additional}{BerkeleyMechanics, 
+FLF1,  
+Crowell1}
+
+\end{document}
+
+
+

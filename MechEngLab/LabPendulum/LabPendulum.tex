@@ -1,0 +1,291 @@
+% !TeX program = pdflatex
+% !TeX encoding = utf8
+% !TeX spellcheck = russian_english
+% !BIB program = biber
+
+
+\documentclass{LabWorkEng}
+\usepackage[type=none]{fgruler}
+\addbibresource{\jobname.bib}
+\tikzset{
+	shipment/.pic = {
+		\fill [blue] (-0.5,0.1) rectangle +(1.2,0.2);
+	}
+}
+
+\tikzset{
+	prism/.pic = {
+		\fill [black] (0,0) -- ++(0.2,0) -- ++(-0.1,-0.25) -- cycle;
+	}
+}
+
+\tikzset{
+	sensor/.pic = {
+		\fill [gray, draw=black] (0,0) -- ++(0.6,0) -- 
+		++(0,0.4) -- ++(0.1,0) -- ++ (0,-0.4) -- ++(0.4,0) --
+		++(0,0.4) -- ++(0.1,0) -- ++(0,-0.5)
+		-- ++(-1.2,0) --cycle;
+	}
+}
+
+\title{Study of physical pendulum}
+\work{4}
+
+\abstract{Study of physical pendulum and determination of the acceleration of free fall by means of a reversible pendulum.}
+
+
+
+\keywords{Physical pendulum, mathematical pendulum, harmonic oscillations, axis of rotation, proper oscillation frequency}
+
+\apparatus{Physical pendulum (homogeneous steel rod with a pair of loads and prisms); tripod for pendant suspension; mathematical pendulum; oscillation counter; stopwatch; scale ruler.}
+
+\begin{document}
+\writedatatofile{\jobname}
+\maketitle
+
+\nocite{IrodovMechanics, BerkeleyMechanics, FLF1, Holyday}
+\printbibliography
+
+\section{Theoretibal background}
+
+A physical pendulum is called any solid which can freely fluctuate around the horizontal axis under the action of gravity. The motion of this pendulum is described by the equation:
+\begin{equation}\label{1}
+	J\frac{d^2\varphi}{dt^2} = M.
+\end{equation}
+where $J$ -- moment of inertia of the pendulum, $\phi$  -- angle of deviation of center of mass of pendulum from equilibrium position, $M$ -- torque acting on pendulum, $t$ -- time. For example, for a homogeneous rod of length $l$, according to Parralel Axes theorem, the moment of inertia is equal to:
+\begin{equation}\label{2}
+	J = ms^2 + \frac{ml^2}{12}
+\end{equation}
+where $m$ -- mass of pendulum, $s$ -- distance between the center of mass and the axis of rotation.
+
+Torque of gravity force acting on the pendulum is based on the formula:
+\begin{equation*}
+	M =  - s \cdot mg \sin \varphi
+\end{equation*}
+
+If the angle $\phi$ is small, then $\sin\phi \approx \phi$, and
+\begin{equation*}
+	M \approx  - s \cdot mg \varphi .
+\end{equation*}
+
+A well-tuned pendulum can make a few hundred oscillations without noticeable extinction, so moment of frictional force in first approximation can be neglected. Substituting expression for $M$ in~\eqref{1}, it is easy to obtain an equation for oscillations
+\begin{equation}\label{2}
+	\ddot \varphi  + {\omega ^2}\varphi  = 0
+\end{equation}
+with frequency
+\begin{equation}\label{3}
+	\omega  = \sqrt {\frac{{mgs}}{J}}
+\end{equation}
+Equation~\eqref{2} describes the harmonic oscillations that occur under the law \(\varphi \left( t \right)~=~A\sin \left( {\omega t + \delta } \right).\)
+
+The amplitude of the oscillations A and their phase $\delta$ depends on the mode of oscillation excitation, that is, on the initial conditions. The proper oscillation frequency $\omega$, according to~\eqref{3}, is determined only by the parameters of the pendulum $J$ and $s$.
+
+The period of oscillations of the physical pendulum $T = 2\pi/\omega$, as well as its frequency, does not depend on the phase and amplitude of the oscillations and is equal to
+\begin{equation}\label{4}
+	T = 2\pi \sqrt \frac{J}{mgs}
+\end{equation}
+
+The motion of the pendulum is described by the equation of harmonic oscillations~\eqref{2} only in the case of small amplitudes, namely, when $\sin\phi \approx\phi$. The suitability of this assumption can be verified experimentally, ensuring that the period of oscillation is independent of amplitude.
+
+If you type designation
+\begin{equation}\label{5}
+	L = \frac{J}{ms}
+\end{equation}
+then formula ~\eqref{4}  will have the same form as the formula for the period of oscillations of a mathematical pendulum with a length $L$:
+\begin{equation}\label{6}
+	T = 2\pi \sqrt {\frac{L}{g}}
+\end{equation}
+
+Therefore, the value of  $L$ is called the reduced length of the physical pendulum~(Fig.~\ref{Scheme}). Point $O'$ that is remote from the support point $O$ at a distance $L$ is called the center of the oscillation of the physical pendulum. The oscillation point of the pendulum and the pivot center of the pendulum are reciprocal, that is, when the pendulum is oscillated around the point $O'$, the oscillation period must be the same as in the case of the oscillation around point $O$. We propose to prove this fact on your own.
+
+
+\section{Theoretical basis of the experiment}
+
+In this paper we use the method of finding the acceleration of free fall by determining the period of free oscillations of the physical pendulum by the formulas~\eqref{4}, \eqref{6}.
+
+Here $J$~-- the moment of inertia of the pendulum relative to the oscillation axis, $m$~-- its mass, $s$ is the distance from the center of mass to the axis of oscillation, $L$~-- the reduced length of the physical pendulum.
+
+The mass of the pendulum and the period of its oscillations can be determined with a sufficiently high accuracy. But it is difficult to do this for the moment of inertia. Avoiding these difficulties is helped by the method of a reversible pendulum. In it, instead of $J$, the reduced length of the pendulum is measured~\eqref{5}.
+
+This method is based on the fact that the period of oscillations of the physical pendulum will not change, if you move it so that the new point of the suspension is the former center of rotation. This point is located at a distance equal to the reduced length of the physical pendulum from the oscillation axis and on one straight line with the axis of oscillation and the center of mass.
+
+The reversible pendulum used in this work consists of a steel rod on which two loads of $B_1$ and $B_2$, each with a mass $m$, and two supporting prisms $P_1$ and $P_2$ (Fig.~\ref{Machine}).
+
+Assume that we found such position of loads in which the periods of oscillations of the pendulum $T_1$ and $T_2$ coincide around the prisms of $P_1$ and $P_2$ that is,
+\begin{equation}\label{7}
+	\sqrt{\frac{{{J_1}}}{{mg{s_1}}}}  = \sqrt {\frac{{{J_2}}}{{mg{s_2}}}}
+\end{equation}
+
+This equality is possible provided that combined lengths $L_1$ and $L_2$. are equal.
+
+On the other hand, by Huygens-Steiner theorem
+\begin{equation}\label{8}
+	J_1 = ms_1^2 + J_0\quad J_2 = ms_2^2 + J_0
+\end{equation}
+where $J_0$~-- moment of inertia of the pendulum relative to the axis passing through the center of mass in parallel with the oscillation axis. Deleting from formulas~\eqref{7}, \eqref{8} $J_0$ and $m$, and using~\eqref{4} we find that
+\begin{equation}\label{9}
+	g = \frac{{4{\pi ^2}\left( {{s_1} + {s_2}} \right)}}{{{T^2}}}
+\end{equation}
+
+Thus, according to~\eqref{6},  $L  = s_1 + s_2$.  Note that formula~\eqref{9} is derived from formulas~\eqref{7}, \eqref{8} provided $s_1 \neq s_2$, otherwise the formulas~\eqref{7} and \eqref{8}  are satisfied identically.
+
+
+\begin{figure}[!htbp]\centering
+	\begin{subfigure}[b]{0.4\linewidth}\centering
+		\begin{picbox}
+			\begin{tikzpicture}
+			\tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum width=0.75cm,minimum height=0.3cm]
+			\node (wall1) [ground, minimum width=3cm] {};
+			\draw (wall1.north west) -- (wall1.north east);
+			\fill[gray!50] (-0.25,0.3) rectangle (0.25,10);
+			%\draw (1,10) -- (1,4);
+			\fill[gray] (-2,10) rectangle +(4,0.1);
+			\fill[gray!50, draw = black] (-1,0.3) rectangle +(2,1);
+			\fill[red] (-0.9,1) rectangle +(0.3,0.1);
+			\fill[black] (-0.9,0.8) rectangle +(0.3,0.1);
+			\fill[black] (-0.9,0.6) rectangle +(0.3,0.1);
+			\draw[fill=white] (-0.5,0.6) rectangle node[text = red] {time} +(1.3,0.5);
+			\fill[black] (-0.9,0.15) rectangle +(0.3,0.15);
+			\fill[black] (0.6,0.15) rectangle +(0.3,0.15);
+			\node at (0.1,5) {\fgrulerdefnum{}\fgrulercaptioncm{}\ruler{upleft}{7cm}};
+			\draw[fill=gray!50] (1,12) rectangle +(0.2,-10);
+			\coordinate (P1) at  (1,10.25);
+			\node[above left] at (P1) {$P_1$};
+			\pic at (P1) {prism};
+			\coordinate (S1) at (1,11);
+			\coordinate (S2) at (1,4);
+			\pic at (S1) {shipment};
+			\node[right=0.5cm] at (S1) {$B_1$};
+			\pic at (S2) {shipment};
+			\coordinate (P2) at  (1.2,2.5);
+			\node[right] at (P2) {$P_2$};
+			\pic[rotate =180] at (P2) {prism} ;
+			\node[right=0.5cm] at (S2) {$B_2$};
+			\draw[thick] (-1.5,10) -- ++(0.25,-7) coordinate (BALL) -- +(0.25,7);
+			\pic[] at (0.2,1.8) {sensor};
+			\fill[blue, draw=black] (BALL) circle (0.15);
+			\end{tikzpicture}
+		\end{picbox}
+		\subcaption{}
+		\label{Machine}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.4\linewidth}\centering
+		\begin{picbox}
+			\begin{tikzpicture}
+			\pgfmathsetmacro{\oangle}{-90+30}
+			\draw (0,0) circle (0.05) node[below left] {$O$};
+			\draw[dashed] (-0.15,-10) rectangle (0.15,2);
+			\draw[rotate=abs(-90-\oangle)] (-0.15,-10) rectangle (0.15,2);
+			\draw[-latex, thick] (0,0) ++(\oangle:4) coordinate (C) -- +(0,-2)  node[below] {$m\vec g$};
+			\draw (0,0) +(\oangle:8) circle (0.05) node[below left] {$O'$};
+			\draw [decorate,decoration={brace,amplitude=3mm,raise=.25cm}] (0,0) -- node[above right=0.25cm] {$s$} (C);
+			\draw (0,0) +(-90:2) arc (-90:\oangle:2) node[pos=0.6, below] {$\phi$};
+			\end{tikzpicture}
+		\end{picbox}
+		\subcaption{}
+		\label{Scheme}
+	\end{subfigure}
+	\caption{}
+	\label{pic}
+\end{figure}
+
+In deriving formula~\eqref{9}, we neglected the difference between periods $T_1$ and $T_2$. In fact, it is impossible to ensure that the periods mentioned are not the same, because
+
+\begin{equation}\label{10}
+	{T_1} = 2\pi \sqrt {\frac{{{J_0} + ms_1^2}}{{mg{s_1}}}}, \quad{T_2} = 2\pi \sqrt {\frac{{{J_0} + ms_2^2}}{{mg{s_2}}}}
+\end{equation}
+
+Where we have
+\begin{equation*}
+	T_1^2g{s_1} - T_2^2g{s_2} = 4{\pi ^2}\left( {s_1^2 - s_2^2} \right)
+\end{equation*}
+
+Taking this into account, we obtain more accurate formula for $g$:
+\begin{equation}\label{11}
+	g = 4{\pi ^2}\frac{{s_1^2 - s_2^2}}{{T_1^2{s_1} - T_2^2{s_2}}} = 4{\pi ^2}\frac{L}{{T_0^2}}
+\end{equation}
+
+where the period entered
+\begin{equation}\label{12}
+	T_0^2 = \frac{{T_1^2{s_1} - T_2^2{s_2}}}{{{s_1} - {s_2}}}
+\end{equation}
+
+Let's analyze the limits of the application of our theory. For this we consider the error of the definition of $T_0$, which itself depends on the errors of measuring periods $\sigma_{T_1}$   and $\sigma_{T_2}$:
+\begin{equation}\label{13}
+	{\sigma _{{T_0}}} = \sqrt {{{\left( {\frac{{\partial {T_0}}}{{\partial {T_1}}}} \right)}^2}\sigma _{{T_1}}^2 + {{\left( {\frac{{\partial {T_0}}}{{\partial {T_2}}}} \right)}^2}\sigma _{{T_2}}^2}
+\end{equation}
+With good equipment when \(\frac{{{\sigma _{{T_1}}}}}{{{T_1}}} \approx \frac{{{\sigma _{{T_2}}}}}{{{T_2}}} \equiv {\varepsilon _T} \ll 1\) we have
+\begin{equation}\label{14}
+	{\sigma _{{T_0}}} = \sqrt {\frac{{s_1^2T_1^4 + s_2^2T_2^4}}{{\left( {{s_1} - {s_2}} \right)\left( {{s_1}T_1^2 - {s_2}T_2^2} \right)}}} {\varepsilon _T}
+\end{equation}
+
+
+Note that with $s_2 \approx s_1$ error significantly increases and this is reflected in the accuracy of determination $g$.
+
+Therefore, the values of $s_2$ and $s_1$ should not be very close. On the other hand, if these values are very different, then the period of oscillations increases substantially, hence, the time of observation increases  and, as a result, the role of the force of friction also is increasing. Thus, while performing the experiment, it is necessary to ensure that the ratio of $s_1/s_2$ is not very large and not very small, the recommended interval
+
+\begin{equation}\label{15}
+	1,5 < {s_1}/{s_2} < 3
+\end{equation}
+
+
+\section{Experimental details}
+
+The system for determining the oscillation period consists of an electronic stopwatch and period counter. The period counter works like this. Near the position of the equilibrium of the pendulum is a photosensor. During oscillation, the rod crosses the axis of the photosensor and thus sends signal to the counter. The counter registers every second pulse. Since during the period the pendulum passes through any position twice, in this way the display of the counter corresponds to the number of periods. The period counter is activated by the \tcbox{\sc{Reset}} button, which simultaneously resets the counter indication. Simultaneously with the counter the electronic stopwatch is switched on. On the digital display of the counter of periods you can observe the number of oscillations made by the pendulum (from the moment the counter is turned on). Turning  on of the \tcbox{\sc{Stop}} button causes the counter of the periods and the stopwatch to stop after pendulum passes another equilibrium position. Therefore, if necessary, to investigate a certain number of periods (suppose $10$), the \tcbox{\sc{Stop}} button should be pressed at the moment when the digital display shows the number of periods per unit less than necessary (in the example given, $9$).
+
+Thus, the recommended measurement procedure is as follows:
+\begin{enumerate}
+	\item deflecting the rod from the equilibrium position, excite the oscillations;
+	\item  turn on the \tcbox{\sc{Reset}} button;
+	\item if necessary, to measure the time of n oscillations (for rough measurements $n = 10-15$, for exact $n = 20-25$ periods) turn on the \tcbox{\sc{Stop}} button at a time when the number of periods appears on the display of the number $n-1$;
+	\item determine the period of one oscillation, dividing the time recorded by the stopwatch on the number of periods.
+\end{enumerate}
+
+Own error of measurement of electronic stopwatch $\pm 0.001$~sec.
+
+In this paper, for the independent estimation of the reduced length of the physical pendulum, a mathematical pendulum model is used, which is a massive ball suspended on two threads. The length of the threads is changed by winding them on the axis. Turning the upper console on which the pendulum is mounted at an angle $180^\circ$ so that the pendulum ball crosses the optical axis, one can measure the period of this pendulum. (The risk on the ball should be on the same level as the photosensor).
+
+\section{Tasks}
+\begin{enumerate}
+	\item Define a range of amplitudes in which the oscillation period of the pendulum $T$ is independent of the amplitude. To do this, deviate the pendulum from the equilibrium position at some angle $\phi_1$ (about $10^\circ$) and measure the time at which the pendulum will make $50$ oscillations. According to the results of the experiment, find the period of oscillation $T$.
+
+	      Repeat the experiment by reducing the initial deviation by $1.5-2$ times, and then again reducing the amplitude again. If the periods coincide with the limits of the measurement error, then for further measurements, you can choose any initial deviation, less than $\phi_1$. If the periods are significantly different, one must study the behavior of the pendulum with smaller deviations.
+
+	      Find out what makes the biggest mistake in the definition of the period and try to reduce it.
+	\item Fix the loads on the rod asymmetrically, so that one of them is located near the end of the rod, and the other one is near the middle of the rod. Place the support prisms on both sides of the center of the masses of the system. Measure the periods of oscillation of the pendulum $T_1$ and $T_2$ around the prisms of $P_1$ and $P_2$.
+	\item Investigate the dependence of $T_1$ and $T_2$ oscillation periods on load positions $B_1$ and $B_2$. It is enough to measure the time of $10-15$ oscillations. Find out:
+	      \begin{itemize}
+		      \item which of the load has a greater effect on the size of the periods;
+		      \item which of the load significantly affects the difference between periods.
+	      \end{itemize}
+	\item Moving loads, which significantly affects the difference in periods, reach a rough coincidence of periods. Define periods for $10-15$ oscillations. Measure the distance between the loads and their position on the rod, find the position of the center of the masses of the pendulum. Estimate the distances $s_1$ and $s_2$. As noted above, they must differ by at least $1.5$ and not more than $3$ times.
+	\item Changing the position of the load, which has less effect on the periods, achieve a coincidence of $T_1$ and $T_2$ periods with an accuracy of not less than 1\%. Check whether the $s_1$ and $s_2$ inequalities~\eqref{15} in this case are satisfied. The final measurement of the period of oscillation of the pendulum should be done in $20-30$ full oscillations. It is also necessary to make sure that the effect of friction with such a number of oscillations is insignificant (i.e, the amplitude of oscillations is not noticeably diminished).
+	\item Find the reduced length of the physical pendulum. Check this value using the mathematical pendulum model. By changing the length of the pendulum with a coil, achieve the coincidence of periods of mathematical and physical pendulums within the accuracy of measurements.
+	\item Repeat the measurement for several (not less than $4-5$) values of the reduced length of the physical pendulum (the distance between the reference prisms).
+\end{enumerate}
+
+
+\section{Processing the results of the experiment}
+
+\begin{enumerate}
+	\item Plot the dependence graph $L$ on $T^2$, and then determine the acceleration of free fall (according to formula \eqref{9}).
+	\item Determine the error of the calculations at each step of the experiment and estimate the overall error.
+\end{enumerate}
+
+
+\section*{Control questions}
+\begin{enumerate}
+	\item Types of pendulums. Give the definition of a physical pendulum?
+	\item What are oscillations? What oscillations are harmonic?
+	\item What are period and amplitude of oscillations?
+	\item With which simplifying assumptions the formula is obtained~\eqref{4}?
+	\item What is the period of oscillations of mathematical pendulum? What is the reduced length of a physical pendulum?
+%	\item At what distance between the center of the masses and the support point the oscillation period will be the smallest?
+	\item Explain how the physical pendulum will move if the support point is located in the center of the mass of the pendulum.
+%	\item Why does mathematical pendulum have two threads?
+	\item What is the absolute measurement error of the period of the oscillation of the pendulum in this experiment?
+	\item Get~\eqref{4}, \eqref{9}, \eqref{11}.
+\end{enumerate}
+
+
+\end{document}

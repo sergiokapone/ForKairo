@@ -1,0 +1,427 @@
+% !TeX program = pdflatex
+% !TeX encoding = utf8
+% !TeX spellcheck = uk_UA
+% !BIB program = biber
+
+
+\IfFileExists{flags}{\input{flags}}{}
+\documentclass{LabWorkEng}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{pgfplotstable}
+\pgfplotstableread[]{
+	X      	Y    Xerror Yerror  Y2
+	0       0    0       0     0
+	0.022  	0.4  0.005   0.1   0.66
+	0.038  	0.8  0.005   0.1   1.14
+	0.058  	1.2  0.005   0.1   1.74
+	0.09   	1.6  0.005   0.1   2.7
+	0.101  	2    0.005   0.1   3.03
+	0.123  	2.4  0.005   0.1   3.69
+	0.130  	2.8  0.005   0.1   3.9
+}\datatable
+%\addbibresource{\jobname.bib}
+\makeatletter
+\renewcommand{\theequation}{E.\arabic{equation}}
+\renewcommand{\thefigure}{F.\arabic{figure}}
+\renewcommand{\thetable}{T.\arabic{table}}
+\makeatother
+
+\newcolumntype{C}{>{\centering\arraybackslash}p{5em}}
+\title{Treatment of Experimental Results}
+
+
+\keywords{Rectilinear motion of bodies, acceleration, free fall acceleration.}
+
+
+\begin{document}
+\makeatletter
+\@maketitle
+\makeatother
+
+Physics is an experimental science. This means that physical laws are established and verified by the accumulation and comparison of experimental data. However, the results obtained during any physical experiment always contain certain errors, since measurement is practically impossible to do with absolute precision. Possible errors play a significant role in comparing the results of the experiment with the theoretical formulas, so you need to learn how to process the measurement results.
+
+\section{Direct and indirect measurements}
+
+\textbf{Measurement} is the process of determining the physical value by an experimental way using special technical means. As a result of the measurement we find out how many times the measured value is more (or less) than the corresponding value taken for the unit of measurement. The measurements are direct and indirect.
+
+\textbf{Direct measurements} are called the measurements, during which the required value is found directly from the experimental data.
+
+\emph{Indirect measurements} are called the measurements, during which the value is found based on the known dependence between this value and the quantities subject to direct measurement. For example, the body density of a cylindrical shape $\rho$ is an indirect measurement and is determined by the formula
+\begin{equation*}
+	\rho  = \frac{{4m}}{{\pi {d^2}h}}
+\end{equation*}
+where the mass, diameter and height of the cylinder ($m$, $d$ and $h$) are determined by the results of direct measurements.
+
+\section{Errors of direct measurements}
+The difference between the measured and the true values of the measured magnitude is called the error (measurement error). Errors in measurements of physical quantities are divided into two types: \textbf{random} and \textbf{systematic}.
+
+
+\subsection{Random (indeterminate) errors}
+
+Random errors are related to the measurement process. For example, by measuring the distance of the flight of a body with a roulette, it is impossible to lay it perfectly right; measuring body mass on scales, friction can not be avoided, etc. Therefore, if you perform the same measurement several times, the results will be slightly different.
+
+Assume that, using the same equipment and measurement method, we made N measurements of the quantity $x$ and obtained $N$ values: $x_1, x_2, \ldots , x_N$, where the quantity $x_1$ is the result of the first measurement, $x_2$ is the second, $x_N$- $N$th measurement. To process the results, we have to answer two questions: how to find the most probable value of the measured quantity? how to determine a random measurement error? The answers to these questions are given by probability theory and mathematical statistics.
+
+According to the theory of probabilities, the most probable value of the measured quantity ($x_\mathrm{measur}$) is equal to average the arithmetic value $\left\langle x \right\rangle $  obtained as a result of measurements:
+\begin{equation}\label{average}
+	x_\mathrm{measur} = \left\langle x \right\rangle = \frac{{{x_1} + {x_2} + {x_3} + \ldots + {x_N}}}{N}
+\end{equation}
+
+\noindent%
+\begin{More}
+	Only the measurements taken under the same conditions can be averaged, even if it is considered that these conditions do not affect the measurement result. If conditions are different, for example, measurements were made in different laboratories, or the acceleration of free fall was determined on the Atwood machine for different ratios $h_1$ and $h_2$, the best estimate of the measured value is a weighted average. Determining the absolute error in this case also has its own characteristics.
+\end{More}
+
+\textbf{Random absolute error} ($\Delta x_\mathrm{rand}$) --- an error resulting from all measurements, is estimated using the so-called \textit{root mean squared error} or \textit{root-mean-square deviation} $\sigma_{\left\langle x \right\rangle}$ and is calculated by the formula:
+\begin{equation}\label{rae}
+	\Delta x_\mathrm{rand} = t_{\alpha, N} \sigma_{\left\langle x \right\rangle} = \sqrt {\frac{{\sum\limits_{i = 1}^N {{{\left( {{x_i} - \left\langle x \right\rangle} \right)}^2}} }}{{N \cdot \left( {N - 1} \right)}}} .
+\end{equation}
+
+\noindent%
+\begin{More}
+	In mathematical statistics, it is substantiated that a more reliable estimate of absolute random error (confidence interval) $\Delta x_\mathrm{rand}$ is determined by the:
+	\begin{equation*}
+		\Delta x_\mathrm{rand} = t_{\alpha, N} \sigma_{\left\langle x \right\rangle},
+	\end{equation*}
+	where  $t_{\alpha, N}$ ---  the tabular value of Student's statistical criterion for the selected reliability of the hit measured quantity in the confidence level $\alpha$ and the number of measurements $N$, $\sigma_{\left\langle x \right\rangle}$ --- root-mean-square deviation.
+
+	For confidence level of $\alpha = 68\%$, sufficient for laboratory work, and the number of measurements $N \le 10$ Student's criterion $t_{\alpha, N} \approx 1$, therefore, in the following formulas is not given.
+\end{More}
+
+\subsection{Systematic (determinate) errors}
+
+Systematic errors (instrumental) are related to the choice of the device: it is impossible to find a roulette with a perfectly accurate scale, absolutely accurate weights, ideally equal levers. Systematic errors are determined by the quality of the device --- its class, so they are often called \textbf{instrumental errors}. In Ukraine, by magnitude of error devices are divided into seven classes. The accuracy class is equal to the relative error of the instrument, given in percentages (here $0.1\%$, $0.2\%$, $0.5\%$, respectively). Especially precise (precision) devices used in exact scientific research are devices of classes $0.1$; $0.2$; $0.5$ Such devices work, for example, in the pharmaceutical industry. The technique uses less precise instruments --- classes $1$; $1.5$; $2.5$; $4$.
+
+For instruments with arrows with a well-known accuracy class $r$ and scale interval $A$:
+\begin{equation}\label{syst}
+	\Delta x_\mathrm{syst} = \frac{rA}{100}.
+\end{equation}
+Devices with systematic errors used in the laboratory of physics are given in Table~\ref{tab1}.
+
+\begin{table}[!htbp]\centering
+	\tabcaption{}
+	\label{tab1}
+	\begin{tabular}{|l|l|l|l|}
+		\hline\rowcolor{gray!50}
+		No & \multicolumn{1}{c|}{Device}      & \multicolumn{1}{c|}{Value of division} & $\Delta x_\mathrm{syst}$ \\ \hline
+		1. & Student's ruler                  & $1$~mm                                 & $\pm 0.5$~mm             \\ \hline
+		2. & \makecell[l]{Ruler for measuring                                                                     \\the position of brackets} & $1$~mm            & $\pm 0.5$~mm             \\ \hline
+		3. & Calipers                         & 0,1 mm                                 & $\pm 0.01$~mm            \\ \hline
+		4. & Micrometer                       & 0,01 mm                                & $\pm 0.005$~mm           \\ \hline
+		5. & Electronic timer                 &                                        & $\pm 0.001$~s            \\ \hline
+		6. & Stopwatch                        &                                        & $\pm 1$~s                \\ \hline
+		7. & Scales training                  &                                        & $\pm 0.01$~g             \\ \hline
+	\end{tabular}%
+\end{table}
+
+\noindent%
+\begin{More}
+	Sometimes there is no need to measure many times. For example, measuring the length of the same section with a ruler, you are unlikely to get different results. However, this does not mean that there are no random errors, because it is impossible to accurately combine the zero of the ruler scale with the beginning of the segment, in addition, it is quite probable that the end of the segment does not coincide with the division of the scale. In such cases, we assume that the random error is equal to one half of the smallest subdivision given on the measuring device.
+\end{More}
+
+\subsection{Total error. Absolute and relative errors of direct measurements}
+
+In order to correctly evalua$\Delta x_\mathrm{syst}$) and the random error ($\Delta x_\mathrm{rand}$) due to measuring errors. This total error is called the absolute measurement error ($\Delta x$) and are determined by the formula:
+\begin{equation}\label{total_err}
+	\Delta x = \sqrt{\Delta x_\mathrm{syst}^2 +\Delta x_\mathrm{rand}^2}
+\end{equation}
+
+In this case, if one of the errors is more than three times smaller than the other one, it can be neglected.
+
+The absolute error itself does not characterize the quality of measurement. In fact, if the distance of $10$~m is measured with an error of $0.2$~m, this indicates a high quality of measurement. A completely different thing, if the same error has been obtained, measuring a distance of $0.5$~m. Therefore, it is better to speak of a relative error.
+
+The relative error $\varepsilon_x$ characterizes the measurement quality and is equal to the absolute error ($\Delta x$) to the average (measured) value of the measured quantity ($\left\langle x \right\rangle$):
+\begin{equation}\label{rel_err}
+	\varepsilon_x = \frac{{\Delta x}}{\left\langle x \right\rangle} \cdot 100\%
+\end{equation}
+Relative error is sometimes called \textit{precision}.
+
+\section{Errors of indirect measurements. Absolute and relative errors indirect measurements}
+
+Many physical quantities can not be measured directly. Their indirect measurement has two steps. First, measure the values $x$, $y$, $z$, \ldots , which can be obtained by direct measurement, and then, using measured values, calculate the desired value of  $f$. How to determine the absolute and relative errors of measurements in this case? The answer to this question is also given by probability theory.
+
+In a particular case, if in the formula that defines the physical quantity $f$, only the operations of multiplication and division are present, then the relative error of this value is equal to the sum of \textit{the relative errors of the quantities which are <<included>> in the formula}. The table shows a number of formulas for calculating relative errors for some functions without derivation.
+
+The absolute error ($\Delta f$) can be found using the relative error ($\varepsilon_f$). In fact, by definition $\varepsilon_f = \frac{\Delta f}{f}$  from here:
+\begin{equation*}
+	\Delta f = {\varepsilon _f} \cdot f
+\end{equation*}
+
+Formulas for relative errors of some functions are given it Table~\ref{errtab}.
+\begin{table}[!htbp]\centering
+	\tabcaption{}
+	\label{errtab}
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline
+		\makecell[l]{Type of formula \\ (function)} &                     $f = x \pm y$                                 &                     $f = xy $                      &                     $f = x/y $                     &                $f = x^n$                        \\ \hline
+		\makecell[l]{Relative error}             & $\varepsilon_f = \frac{\Delta x + \Delta y}{x \pm y}$ & \multicolumn{2}{c|}{$\varepsilon_f = \varepsilon_x + \varepsilon_y$} & $\varepsilon_f = n \cdot \varepsilon_x $  \\ \hline
+	\end{tabular} 
+\end{table}
+
+\noindent%
+\begin{More}
+	According to the theory of errors (J. Taylor's theory), the absolute error $\Delta f$ of indirect measurements of the value $f (x, y, z, \ldots)$ regardless of the type of function can be calculated by the general formula:
+	\begin{equation}\label{Df}
+		Delta f = \sqrt {{{\left( {\frac{{\partial f}}{{\partial x}}\Delta x} \right)}^2} + {{\left( {\frac{{\partial f}}{{\partial y}}\Delta y} \right)}^2} + {{\left( {\frac{{\partial f}}{{\partial z}}\Delta z} \right)}^2} + \ldots}
+	\end{equation}
+	or approximately:
+	\begin{equation}
+		\Delta f = \left| {\frac{{\partial f}}{{\partial x}}} \right|\Delta x + \left| {\frac{{\partial f}}{{\partial y}}} \right|\Delta y + \left| {\frac{{\partial f}}{{\partial z}}} \right|\Delta z + \ldots
+	\end{equation}
+	where $\left| \frac{\partial f}{\partial x} \right|$ ---	modulus of partial derivative of the function $f (x, y, z, \ldots)$  with respect to $x$ (during differentiation all other variables are considered to be stable),  $\left| \frac{\partial f}{\partial y} \right|$,  $\left| \frac{\partial f}{\partial z} \right|$  --- moduluses of partial derivative of the function with respect to \textit{other variables}, respectively.
+
+	By definition, of relative error is  $\varepsilon _f = \frac{\Delta f}{f}$	, then taking into account ~\eqref{Df}:
+	\begin{equation}
+		\varepsilon _f = \frac{{\Delta f}}{f} = \sqrt {{{\left( {\frac{1}{f}\frac{{\partial f}}{{\partial x}}\Delta x} \right)}^2} + {{\left( {\frac{1}{f}\frac{{\partial f}}{{\partial y}}\Delta y} \right)}^2} + {{\left( {\frac{1}{f}\frac{{\partial f}}{{\partial z}}\Delta z} \right)}^2} + ...}
+	\end{equation}
+\end{More}
+
+\noindent%
+\begin{Example}
+	To determine the acceleration of  body motion $a$ path $s = 10.000$~m with an error $\Delta s = 0.005$~m at time $t = 20$~s was measured. Error measuring the time $\Delta t = 1$~s. Find the absolute error of acceleration.
+
+	\hrulefill
+
+	We know, that $S = \frac{at^2}{2}$. From here $a = f\left( {S,t} \right) = \frac{{2S}}{{{t^2}}} = \frac{{2 \cdot 10}}{{{\left( {20} \right)}^2}} = 0,050$~m/s$^2$.
+
+	Acceleration $a$ is an indirect measurement, that is, the function of direct measurements $s$, $t$.
+
+	\begin{multline*}
+		\Delta f = {\Delta _a} = \sqrt{{{\left( {\frac{{\partial a}}{{\partial s}}\Delta s} \right)}^2} + {{\left( {\frac{{\partial a}}{{\partial t}}\Delta t} \right)}^2}}  = \\
+		= \sqrt {{{\left( {\frac{2}{{{t^2}}}\Delta s} \right)}^2} + {{\left( { - \frac{{4s}}{{{t^3}}}\Delta t} \right)}^2}}
+		= 0,005\;\text{m/{s$^2$}}
+	\end{multline*}
+
+	Result:  $a = 0.050\pm 0.005$~m/{s$^2$}.
+\end{Example}
+
+\section{How to write the measurement results correctly}
+The absolute error of an experiment determines the accuracy with which it makes sense to calculate the measured value.
+
+\textit{The absolute error is always rounded  off to overstatement of one significant digit, and the result of the measurement -- to the same order of magnitude (located in the same decimal position) as absolute error}. The final result for the value of $x$ is written as:  
+\begin{equation*}
+	x_\mathrm{meas} = \left\langle x \right\rangle  \pm \Delta x,
+\end{equation*}
+where $x_\mathrm{meas}$~--- measured value.
+
+Significant digits are all digits of the number, starting with the first digit to the left, \textit{different from zero}, to the last digit, for the correctness of which one can <<guarantee>>. For example, in the number $320.0$ four significant digits $(3; 2; 0; 0)$, in the number $0.32$ -- two $(3; 2)$, in the number $0.3$ -- one $(3)$.
+
+The last formula means that the true value of the measured value lies in the interval between $x_\mathrm{meas} = \left\langle x \right\rangle  - \Delta x$ and $x_\mathrm{meas} = \left\langle x \right\rangle  + \Delta x$. The absolute error $\Delta x$ is assumed to be a positive value, so $x_\mathrm{meas} = \left\langle x \right\rangle  + \Delta x$ is always \textit{the most} probable value of the measured quantity, and $x_\mathrm{meas} = \left\langle x \right\rangle  - \Delta x$  is its \textit{least probable} value.
+
+\noindent%
+\begin{Example}
+	Let me measure acceleration $g$ of free fall. As a result of the processing of the experimental data obtained, an average value was found: $g = 9.736$~m/s$^2$. For an absolute error, $\Delta g = 0.123$~m/s$^2$ was obtained. The absolute error must be rounded up to one significant digit with an overstatement: $\Delta g = 0.2$~m/s$^2$. Then the result of the measurement is rounded up to the same order of magnitude as the order of error, that is, to the tenth: $g = 9.7$~m/s$^2$.
+	
+	The answer according to the experiment should be presented as \[g = (9.7 \pm 0.2)~\text{m/s$^2$}.\]
+\end{Example}
+
+\section{Graphical method of processing results}
+
+Sometimes it's much easier to process experiment results if to submit them as a graph. Assume that it is necessary to determine the stiffness of the spring. It was decided to use the formula $k = \frac{F_\mathrm{elast}}{x}$.
+
+To obtain the most accurate result, spring elongation at different values of elastic strength was measured. A series of measurements at one point (i.e. for one elongation $x$) was performed to determine the absolute error of the $\Delta F$ elastic force. As an error, $\Delta x$ the instrumental error of the ruler was taken. Considered the errors $\Delta F$ and $\Delta x$ for all points are the same (on the plot of the length of the segments, of which the <<crosses>> are the same for all points).
+
+The results of the measurements and the absolute errors are given in Table~\ref{tab3}.
+
+% Table generated by Excel2LaTeX from sheet 'Лист1'
+\begin{table}[!htbp]\centering
+	\tabcaption{}
+	\label{tab3}
+\pgfplotstableset{
+	columns={X,Y,Xerror,Yerror},
+	columns/X/.style={
+		column name={$x$, \SI{e-2}{\meter}},
+		multiply by=100,
+		fixed, fixed zerofill,
+	},
+	columns/Y/.style={
+		column name={$F_\mathbf{elast}$, \si{\newton}},
+		fixed, fixed zerofill,
+	},
+	columns/Xerror/.style={
+		column name={$\Delta x$, \SI{e-3}{\meter}},
+		multiply by=1000
+	},
+	columns/Yerror/.style={
+		column name={$\Delta F_\mathbf{elast}$, \si{\newton}},
+	},
+	every head row/.style={
+		before row={\toprule},
+		after row={\midrule}
+	},
+	every last row/.style={after row=\bottomrule},
+}
+\pgfplotstabletypeset{\datatable}
+%	\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+%		\hline
+%		$F_\mathrm{elast}$ , N &   0   &  0.4  &  0.8  &  1.2  &  1.6  &   2   &  2.4  &                 2.8                   \\ \hline
+%		        $x$, m         &   0   & 0.022 & 0.038 & 0.058 & 0.09  & 0.101 & 0.123 & 0.130 \\ \hline
+%	$\Delta F_\mathrm{elast}$, N & 0.1 & 0.1 & 0.1 & 0.1 & 0.1 & 0.1 & 0.1 & 0.1 \\ \hline
+%		    $\Delta x$, m      & 0.005 & 0.005 & 0.005 & 0.005 & 0.005 & 0.005 & 0.005 &                0.005                  \\ \hline
+%	\end{tabular}%
+\end{table}
+
+Let's illustrate the experimental data presented in the table in the form of points, putting the value of absolute elongation of the spring  $x$ and measurement error $\Delta x$  (in the form of a segment whose length corresponds to the confidence interval in which the measured elongation $x$ falls into the abscissa) and on the ordinate axis -- the corresponding values of the force of elasticity $ F_\mathrm{elast}$ and the errors of its measurement $\Delta F_\mathrm{elast}$ (Figure~\ref{fig1}). Since the coefficient of rigidity $k$ does not depend on the elongation of the spring, theoretically, the plot of the dependence of $F_\mathrm{elast} (x)$ should be the form of a straight line passing through the origin of the coordinate. 
+
+
+%=======================================================================================================
+%                      Лінійна апроксимація даних з таблиці
+%=======================================================================================================
+\begin{figure}[!htbp]\centering
+	\figcaption{}
+	\label{fig1}
+	\begin{tikzpicture}
+	\begin{axis}[
+	%every x tick scale label/.style={at={(rel axis cs:1,0)},anchor=south west,inner sep=1pt},
+	scaled x ticks=base 10:2,
+	grid=both,
+	minor tick num=5,
+	grid style={line width=.1pt, draw=gray!10},
+	major grid style={line width=.2pt,draw=gray!50},
+	width=\linewidth,
+	axis lines = left, %set the position of the axes
+	xlabel={$x$, m},
+	ylabel={$F_\mathrm{elast}$, N},
+	legend cell align=left,
+	legend pos=north west]
+	% ================== Plot 1 =====================
+	\addplot [only marks, error bars/.cd,y dir=both, x dir=both, y explicit, x explicit] table[x =X, y =Y, x error=Xerror, y error =Yerror] {\datatable};
+	\addlegendentry{Experimental values}
+	
+	\addplot[mark=none, thick, red, domain={0:0.130}] {20*x};  
+	\addlegendentry{$20 \cdot x$}  
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+%\begin{figure}[!htbp]\centering
+%	\figcaption{}
+%	\label{fig1}
+%\begin{tikzpicture}
+%\begin{axis}[
+%%every x tick scale label/.style={at={(rel axis cs:1,0)},anchor=south west,inner sep=1pt},
+%scaled x ticks=base 10:2,
+%grid=both,
+%minor tick num=5,
+%grid style={line width=.1pt, draw=gray!10},
+%major grid style={line width=.2pt,draw=gray!50},
+%width=\linewidth,
+%axis lines = left, %set the position of the axes
+%xlabel={$x$, m},
+%ylabel={$F_\mathrm{elast}$, N},
+%legend cell align=left,
+%legend pos=north west]
+%\addplot[only marks, error bars/.cd,y dir=both, x dir=both, y explicit, x explicit] table[x =X, y =Y, x error=Xerror, y error =Yerror] {data.dat};
+%\addlegendentry{Experimental values}
+%
+%\addplot +[raw gnuplot, thick, red, mark=none, smooth] gnuplot {
+%	FIT_LIMIT=1.e-14;
+%	f(x)=a*x;
+%	fit f(x) 'data.dat' using 1:2 via a;
+%	% Next, plot the function using the x positions from the table
+%	plot 'data.dat' using 1:(f($1))%$
+%	set print 'parameters.dat"; % Open a file to save the parameters into
+%	print a;
+%};     
+%\addlegendentry[]{\pgfplotstableread{parameters.dat}\parameters% Open the file Gnuplot wrote
+%	\pgfplotstablegetelem{0}{0}\of\parameters \edef\paramA{\pgfplotsretval}% Get first element, save into \paramA
+%	$\pgfmathprintnumber{\paramA} x$    
+%}  
+%\end{axis}
+%\end{tikzpicture}
+%\end{figure}
+
+Let's draw this line, How it can be done, we will describe below later. By selecting an arbitrary point on the line and finding the corresponding values of $F_\mathrm{elast}$ and $x$, we determine the mean value of the stiffness of the spring:
+\begin{equation*}
+k = \frac{F_\mathrm{elast}}{x} = \frac{{1.6\;\text{N}}}{{8\cdot 10^{-2}\;\text{m}}} = 20\;\frac{\text{N}}{\text{m}}
+\end{equation*}
+
+\begin{More}
+	In fact, when we drew a straight line to the experimental points, we approximated the experimental data by linear dependence $y = ax + b$. The angular coefficient $a$ and the free term $b$ can be determined using the  \textbf{Least Squares Metod}.
+	According with dthis method:
+	\begin{equation}\label{MLSa}
+		a = \frac{{\left\langle xy \right\rangle  - \left\langle x \right\rangle \left\langle y \right\rangle }}{{D\left( x \right)}}
+	\end{equation}
+	\begin{equation}\label{MLSb}
+		b = \left\langle y \right\rangle  - a\left\langle x \right\rangle
+	\end{equation}
+	where 
+	\begin{align}
+		\left\langle x \right\rangle &= \frac{1}{N}\sum\limits_{i = 1}^N x_i \\
+		\left\langle y \right\rangle &= \frac{1}{N}\sum\limits_{i = 1}^N y_i \\
+		\left\langle xy \right\rangle &= \frac{1}{N}\sum\limits_{i = 1}^N x_i\cdot y_i \\
+		\left\langle x^2 \right\rangle &= \frac{1}{N}\sum\limits_{i = 1}^N x^2_i \\
+		D(x) &= \left\langle x^2 \right\rangle  -\left\langle x \right\rangle^2 
+	\end{align}
+
+Formulas for estimating the errors in the parameters $a$ and $b$:
+\begin{align}
+	\Delta a &= \frac{1}{\sqrt{N}}\sqrt{\frac{D(y)}{D(x)} - a^2} \\
+	\Delta b &= \Delta a \sqrt{D(x)}
+\end{align}
+\end{More}
+
+To estimate, how the linear dependence is constructed corresponds to the experimental data, it is possible with the help of linear correlation coefficient $R$: 
+\begin{equation}\label{R}
+	R = \frac{{\left\langle {xy} \right\rangle  - \left\langle x \right\rangle \left\langle y \right\rangle }}{{D\left( x \right)D\left( y \right)}}
+\end{equation}
+
+In laboratory and engineering calculations, the relative error with which the function describes the experimental data is determined by the approximate formula: 
+\begin{equation}\label{eps}
+	\varepsilon  = \frac{{\sqrt {{{\left( {\frac{{{\Delta _x}}}{{\bar x}}} \right)}^2} + {{\left( {\frac{{{\Delta _y}}}{{\bar y}}} \right)}^2} + \ldots} }}{m}
+\end{equation}
+In the numerator, under the root, the squares of all types of relative errors of the measured value are summed, $m$ --- the number of errors. 
+
+If there are several curves on the same graph, then each curve receives its number, and the points on each of them have different markings. Under the figure, write down its number and name, followed by an explanation of the physical parameters that distinguish the numbered curves. The scale and boundaries in which the argument and the function change, must be selected so that the graph occupies the entire allocated area (Fig.~\ref{fig2}).
+
+\begin{figure}[!htbp]\centering
+	\figcaption{}
+	\label{fig2}
+	\begin{tikzpicture}
+	\begin{axis}[
+	%every x tick scale label/.style={at={(rel axis cs:1,0)},anchor=south west,inner sep=1pt},
+	scaled x ticks=base 10:2,
+	grid=both,
+	minor tick num=5,
+	grid style={line width=.1pt, draw=gray!10},
+	major grid style={line width=.2pt,draw=gray!50},
+	width=\linewidth,
+	axis lines = left, %set the position of the axes
+	xlabel={$x$, m},
+	ylabel={$F_\mathrm{elast}$, N},
+	legend cell align=left,
+	legend pos=north west]
+	% ================== Plot 1 =====================
+	\addplot [only marks, red, error bars/.cd, y dir=both, x dir=both, y explicit, x explicit, error bar style={black}] table[x =X, y =Y, x error=Xerror, y error =Yerror] {\datatable};
+	\addlegendentry{Experimental values 1}
+	
+	\addplot[mark=none, thick, red, domain={0:0.130}] {20*x};  
+	\addlegendentry{$20 \cdot x$ linear approximation}  
+	
+	% ================== Plot 2 =====================
+	\addplot [only marks, mark=triangle, mark size=4pt, blue, error bars/.cd, y dir=both, x dir=both, y explicit, x explicit, error bar style={black}] table[x = X, y =Y2, x error=Xerror, y error =Yerror] {\datatable};
+	\addlegendentry{Experimental values 2}
+	
+	\addplot[mark=none, thick, blue, domain={0:0.130}] {30*x};  
+	\addlegendentry{$30 \cdot x$ linear approximation}  
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+\section*{Control questions}
+
+\begin{enumerate}
+	\item What consecutive operations are performed by measuring any physical quantity?
+	\item What types of measurement errors do you know?
+	\item How to find the most probable (average value) of the measured value in the case of direct measurements?
+	\item How to determine a random measurement error?
+	\item What is the absolute systematic error determined?
+	\item What is called a relative measurement error?
+	\item How to round up and record measurement results correctly?
+	\item What is the advantage of the graphical method of processing the results of the measurement?
+	\item How to draw up the graph correctly? How to display the errors on graph?
+	\item How to approximate the experimental data on the graph with the functional dependence?
+\end{enumerate}
+
+\end{document}

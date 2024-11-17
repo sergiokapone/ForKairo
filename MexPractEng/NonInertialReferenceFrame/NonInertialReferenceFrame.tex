@@ -1,0 +1,66 @@
+% !TeX program = lualatex
+% !TeX encoding = utf8
+% !TeX spellcheck = uk_UA
+% !TeX root =../MexPractEng.tex
+
+%=========================================================
+\chapter{Non-inertial reference frame. Inertial forces}\label{\currfilebase}
+\Opensolutionfile{answer}[\currfilebase/\currfilebase-Answers]
+\Writetofile{answer}{\protect\section*{\nameref*{\currfilebase}}}%
+%=========================================================
+
+
+%=========================================================
+\begin{problem}
+	A horizontal disc rotates with a constant angular velocity $\omega = 6.0$~\si{\radian\per\second} about a vertical axis paissing through its centre. A small body of mass $m = 0.50$~kg moves along a diameter of the disc with a velocity $v' = 50$~cm/s which is constant relative to the disc. Find the force that the disc exerts on the body at the moment when it is located at the distance $r = 30$~cm from the rotation axis. 	
+	\begin{solution}
+		$F = m\sqrt{g^2  \omega^4 r^2 + 2 + (2v'\omega)^2} = 8~\si{\newton}$.
+	\end{solution}
+\end{problem}
+
+
+%=========================================================
+\begin{problem}
+	A horizontal smooth rod $AB$ rotates with a constant angular velocity $\omega = 2.00$~\si{\radian\per\second} about a vertical axis passing through its end $A$. A freely sliding sleeve of mass $m = 0.50$~kg moves along the rod from the point A with the initial velocity $v_0 = 1.00$~m/s. Find the Coriolis force acting on the sleeve (in the reference frame fixed to the rotating rod) at the moment when the sleeve is located at the distance $r = 50$~cm from the rotation axis.
+	\begin{solution}
+		$F = 2m\omega^2r\sqrt{1 + \left(\frac{v_0}{\omega r} \right)^2 } = 2.8~\si{\newton}$.
+	\end{solution}
+\end{problem}
+
+
+%=========================================================
+\begin{problem}
+	A horizontal disc of radius $R$ rotates with a constant angular velocity $\omega$ about a stationary vertical axis passing through its edge. Along the circumference of the disc a particle of mass m moves with a velocity that is constant relative to the disc. At the moment when the particle is at the maximum distance from the rotation axis, the resultant of the inertial forces Fin acting on the particle in the reference frame fixed to the disc turns into zero. Find: 
+	\begin{enumerate*}[label=(\alph*)]
+		\item the acceleration $a'$ of the particle relative to the disc; 
+		\item the dependence of $F_{\mathrm{\tau n}}$ on the distance from the rotation axis.
+	\end{enumerate*}
+	\begin{solution}
+		\begin{enumerate*}[label=(\alph*)]
+			\item $a' = \omega^2 R$;
+			\item $F_{\mathrm{\tau n}} = m\omega^2 r \sqrt{\left( \frac{2R}{r}\right) - 1}$.
+		\end{enumerate*}
+	\end{solution}
+\end{problem}
+
+
+%=========================================================
+\begin{problem}
+	A small body of mass $m = 0.30$~kg starts sliding down from the top of a smooth sphere of radius $R = 1.00$~m. The sphere rotates with a constant angular velocity $\omega = 6.0$~\si{\radian\per\second} about a vertical axis passing through its centre. Find 
+	\begin{enumerate*}[label=(\alph*)]
+		\item the Centrifugal force of inertia and
+		\item the Coriolis force 
+	\end{enumerate*}
+	at the moment when the body breaks off the surface of the sphere in the reference frame fixed to the sphere.	 
+	\begin{solution}
+		\begin{enumerate*}[label=(\alph*)]
+			\item $F_{\mathrm{cf}} = m\omega^2 R \sqrt{\frac59} = 8~\si{\newton}$;
+			\item $F_{\mathrm{cor}} = \nfrac23 m\omega^2 R \sqrt{5 + \frac{8g}{3\omega^2R}} = 17~~\si{\newton}$.
+		\end{enumerate*}
+	\end{solution}
+\end{problem}
+
+
+
+\Closesolutionfile{answer}
+

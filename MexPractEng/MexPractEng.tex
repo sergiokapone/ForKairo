@@ -1,0 +1,240 @@
+% !TeX document-id = {1005c3c0-d1df-46ae-8c5c-0d3e509c55a8}
+% !TeX program = lualatex
+% !TeX encoding = utf8
+% !TeX spellcheck = uk_UA
+% !BIB program = biber
+
+\documentclass[biblatex]{ProblemBookEng}
+\usepackage{pdfrender}
+
+%\usepackage{pscyr}
+%========================================================================================================
+%
+\title{Problems}
+\def\authors{S.~M.~Ponomarenko}
+%
+%========================================================================================================
+%
+\addbibresource{BooksEng.bib}
+
+%========================================================================================================
+
+
+%========================================================================================================
+%
+%									      Титульна сторінка
+%
+%========================================================================================================
+
+\makeatletter
+\newenvironment{alwayssingle}{%
+	\thispagestyle{empty}
+	\@restonecolfalse
+	\if@twocolumn\@restonecoltrue\onecolumn
+	\else\if@openright\cleardoublepage\else\clearpage\fi
+	\fi}%
+{\if@restonecol\twocolumn
+	\else\newpage\thispagestyle{empty}\fi
+}
+
+\renewcommand\maketitle{
+	\begin{alwayssingle}
+		\begin{center} 	
+			\large \MakeUppercase{NATIONAL TECHNICAL UNIVERSITY OF UKRAINE}\par
+			\MakeUppercase{<<Igor Sikorsky Kyiv Polytechnic Institute>>}\par
+			\MakeUppercase{Institute of Physics and Technology}\par
+			%---Університет 
+			\vspace*{5em}
+			\large\sffamily\authors\par
+			\vspace*{4em}
+			{\par\centering
+				\begin{tcolorbox}[width={\linewidth-6pt},
+					breakable,
+					enhanced,
+					colback=white,
+					colframe=white,
+					arc=0pt, outer arc=0pt,
+					boxrule=0pt,
+					toprule=0pt,
+					bottomrule=0pt,
+					enlarge top by=5mm,
+					]
+					\centering
+					\Huge\sffamily\bfseries\MakeUppercase{Physics 1. Mechanics}\\ 
+					
+					\vspace*{2em}
+					
+					\@title
+				\end{tcolorbox}\par}
+			
+			\vfill
+			
+			\begin{center}
+				For specialties
+				
+				\vspace*{1em}
+				
+				113 APPLIED MATHEMATICS
+				
+				125 CYBERSECURITY
+			\end{center}
+			
+			%{\Huge\sffamily\bfseries\textcolor{black}{\@title}\par}	
+			%{\vspace*{2em}\par\ifx\@logo\@empty\else\@logo\fi\par}
+			%{\CYRF\kern-0.27ex\raisebox{-0.5ex}{\CYRII}\kern-0.27ex\raisebox{-0.1ex}{\CYRZ}\kern-0.27ex\TeX\par}
+			%----Логотип 	
+			{\vspace*{2em}}%---Відступ 
+			{\large\sffamily\bfseries{}\par}
+			\vfill
+			%\ifelectronic \noindent Електронне видання \fi
+			%\par {Версія від~\href{http://www.istpravda.com.ua/dates}{\today}} \par\else \par  \fi			       	
+			{\normalsize\MakeUppercase{Kyiv~\the\year}\par}
+			%{\normalsize\MakeUppercase{ВПІ ВПК <<ПОЛІТЕХНІКА>>}\par}
+		\end{center}
+		\newpage
+	\end{alwayssingle}	
+}
+
+%========================================================================================================
+%
+%									      Друга сторінка
+%
+%========================================================================================================
+\newcommand\makeinfopage{
+	\begin{alwayssingle}
+		
+		Physics 1. Mechanics. \@title. For specialties 113 Applied Mathematics and 125~Cybersecurity / \authors{} -- Kyiv, <<Igor Sikorsky Kyiv Polytechnic Institute>>, 2018  -- ~\pageref{LastPage} p.
+		
+		
+		\vspace*{6em}
+		
+		\begin{center}
+			Electronic edition
+		\end{center}
+		
+		Approved by methodical board of IPT Igor Sikorsky Kyiv Polytechnic Institute Protocol \textnumero~6 /2018 of May 24, 2018.
+		
+		\vspace*{5em}
+		
+		Author:
+		\begin{itemize}
+			\item Associate Professor of the Power System Physics Dept., Ph.D. Ponomarenko S.~M.
+		\end{itemize}
+		
+		Reviewer:
+		\begin{itemize}
+			\item 	Associate Professor of the Information Security  Dept., Ph.D. Smirnov~S.~A.
+		\end{itemize}
+	
+		\vfill
+		
+		In the editorship of the authors
+		
+		\vfill
+		
+		\begin{flushleft}\small
+			 The typesetting of the text is done in the publishing system \LaTeXe{} (compiler Lua\LaTeX) on the basis of the computer typesetting system \TeX{} (Distributive  \href{https://www.tug.org/texlive/}{\TeX Live~\the\year}) using the editor \href{https://www.texstudio.org}{\TeX Studio}. The illustrative material of the book is prepared using the package \href{http://pgf.sourceforge.net}{TikZ/Pgf}.
+		\end{flushleft}	
+		\vfill
+		
+		\begin{flushleft}
+			\begin{tabular}{p{\textwidth - 50ex}l}
+				& \small\textcopyright\quad \authors, \the\year~р. \\
+				& \small \textcopyright\quad IPT Igor Sikorsky Kyiv Polytechnic Institute, \the\year~р.           
+			\end{tabular}
+		\end{flushleft}
+		\newpage
+	\end{alwayssingle}
+}
+\makeatother
+
+\begin{document}
+\pagestyle{empty}
+%\ifelectronic\CoverPage\setcounter{page}{0}\fi
+\maketitle
+\makeinfopage
+%========================================================================================================
+%
+%									               Зміст
+%
+%========================================================================================================
+\clearpage\pagestyle{main}
+\tableofcontents
+%========================================================================================================
+%
+%									         Вступ та передмова
+%
+%========================================================================================================
+%\include{intro}
+%========================================================================================================
+%
+%									      Вставка файлів розділів
+%
+%========================================================================================================
+\setcounter{chapter}{-1}
+\newcommand{\Chapters}{%
+	Vectors,
+	Kinematics,
+	Dynamics,
+	NonInertialReferenceFrame,
+	WorkEnergyConservationLaws,
+	CentralForceProblem,
+	RigidBody,
+	SR,
+	MechanicalOscillations,
+}
+%========================================================================================================
+\multiinclude{\Chapters}[]
+%========================================================================================================
+%
+%									       Вставка відповідей
+%
+%========================================================================================================
+\answers
+\multiinclude{\Chapters}[-Answers]
+%========================================================================================================
+%
+%									             Додатки
+%
+%========================================================================================================
+%\appendix
+%\input{Additions/Vanaliz}
+%\input{Additions/SItoGauss}
+%\input{Spheres/Spheres}
+%%\input{Additions/MatherialConstants}
+%\input{Additions/PhysConstants}
+%========================================================================================================
+%
+%									       Вставка бібліографії
+%
+%========================================================================================================
+\newpage\appendixfalse\phantomsection\label{BibPage}
+
+\nocite{%
+	IrodovMechanics,
+	BerkeleyMechanics,
+	BerkeleyWaves,
+	FLF1,
+	Holyday,
+	Crowell1,
+	IrodovProblems}
+
+\printbibheading
+\defbibheading{subbibliography}[\bibname]{\section*{#1}}
+\printbibliography[category=Textbooks, heading=subbibliography, title={Textbooks}]
+\addtocategory{Textbooks}{%
+	IrodovMechanics,
+	BerkeleyMechanics,
+	BerkeleyWaves,
+	FLF1,
+	Holyday,
+	Crowell1,
+}
+
+\printbibliography[category=Problems, heading=subbibliography, title={Problem books}]
+\addtocategory{Problems}{%
+	IrodovProblems,
+}
+
+
+\end{document}
